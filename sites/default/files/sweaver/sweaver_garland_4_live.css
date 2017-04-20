@@ -1,0 +1,29 @@
+a span {
+  font-family: Georgia,Serif;
+  font-style: italic;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+#name-and-slogan #site-slogan {
+  font-family: 'Courier New',Courier,Monospace;
+  font-size: 22px;
+  font-style: normal;
+  text-align: center;
+}
+
+h1 a {
+  font-size: 12px;
+  font-family: 'Courier New',Courier,Monospace;
+  padding-bottom: 20px;
+  line-height: 25px;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  border-bottom-width: 11px;
+}
+
+a #logo {
+  font-size: 18px;
+}
+
