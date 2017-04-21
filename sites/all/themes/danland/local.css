@@ -21,10 +21,11 @@
 -------------------------------------------------------------- */
 
 body {
-background:url(images/body-bg.gif) repeat-x #fff;
+/*background:url(images/body-bg.gif) repeat-x #fff;*/
+/*background-color: #ead7c8;*/
 font-size: 84%;
 font-family: Arial, Helvetica, sans-serif;
-color: #000;
+color: #59330d;
 margin: 0;
 padding: 0;
 line-height: 1.5em;
@@ -42,7 +43,7 @@ text-decoration: none;
 }
 
 a:link {
-color: #005a8c;/*#e87e17*/
+color: #946138;/*#e87e17*/
 text-decoration: none;
 }
 
@@ -52,7 +53,7 @@ text-decoration: none;
 }
 
 a:hover {
-color:#cc6600;
+color:#bd7942;
 }
 
 blockquote {
@@ -113,6 +114,7 @@ font-size: 1em;
 h1,h2,h3,h4,h5,h6 {
 padding:0;
 margin:0;
+color: #59330d;
 }
 
 /* Header regions
@@ -148,35 +150,39 @@ float: left;
 }
 
 .logo {
-margin-top: 10px;
+margin-top: 20px;
 margin-left: 15px;
 }
 
 .logo IMG {
-height:50px;
+height:100px;
 }
 
 #branding-wrapper {
 float: left;
-margin-top: 25px;
+margin-top: 50px;
+margin-bottom: 50px;
 }
 
 .site-name {
 display: inline;
 font-weight: bold;
-font-size: 25px;
+font-size: 50px;
 margin-left: 15px;
+margin-top: 30px;
 position: relative;
-font-family: Verdana, Tahoma;
-font-style: italic;
+font-family: 'Architects Daughter';
+font-style: none;
 }
 
 .site-slogan {
 display: inline;
 font-weight: bold;
+font-size: 20px;
 position: relative;
-margin-left: 10px;
-font-family: Verdana, Tahoma;
+margin-left: 110px;
+padding-top: 30px;
+font-family: 'Open Sans', sans-serif;
 }
 
 #header-wrapper #search-box {
@@ -189,6 +195,14 @@ white-space: nowrap;
 
 #header-wrapper #search-box input.form-text {
 width: 10em;
+}
+
+.feed-wrapper {
+display:none;
+}
+
+#authorize {
+display:none;
 }
 
 /* Primary menu + Superfish
@@ -374,11 +388,11 @@ background: transparent;
 }
 
 #superfish .menu li li {
-background: #3b6999;
+background: #b47d5f;
 }
 
 #superfish .menu li li li {
-background: #3b6999;
+background: #b47d5f;
 top: 0px;
 }
 
@@ -404,15 +418,15 @@ background:transparent url(images/menu-hover-bg.gif) repeat-x;
 }
 
 #superfish .menu li.active-trail li {
-background: #3b6999;
+background: #b47d5f;
 }
 
 #superfish .menu li li:hover {
-background: #3b6999;
+background: #b47d5f;
 }
 
 #superfish .menu li li li:hover {
-background: #3b6999;
+background: #b47d5f;
 }
 
 .sf-sub-indicator {
@@ -645,6 +659,7 @@ font-size:12px;
 #sidebar-left h2.block-title,
 #sidebar-right h2.block-title {
 background: #e6e6e6;
+background-color: #e3c6af;
 margin:0;
 padding-top: 5px;
 padding-bottom: 5px;
@@ -659,7 +674,7 @@ padding: 5px 15px;
 }
 
 .sidebar .block {
-background-color: #f4f4f4;
+background-color: #f8f2ed;
 border-right: 1px solid #bbb;
 border-bottom: 1px solid #bbb;
 border-left: 1px solid #ddd;
@@ -697,6 +712,7 @@ margin-bottom: 5px;
 font-size: 10px;
 text-align:center;
 margin-bottom: -10px;
+display:none;
 }
 
 table {

@@ -1,6 +1,9 @@
 <?php
 // $Id: page.tpl.php,v 1.17.2.4 2010/11/19 14:42:44 danprobo Exp $
 ?>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Open+Sans');
+</style>
 <div <?php print danland_page_class($page['sidebar_first'], $page['sidebar_second']); ?>>
 <div id="header">
 <div id="header-wrapper">
