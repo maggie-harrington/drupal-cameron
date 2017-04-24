@@ -6,16 +6,17 @@ function greeting_menu() {
         'title' => 'Hello Friend!',
         'page callback' => 'say_hello',
         'access callback' => TRUE,
-        'type' => MENU_NORMAL_ITEM,
+        'type' => MENU_CALLBACK,
     );
     $items['goodbye'] = array(
         'title' => 'Goodbye Friend!',
         'page callback' => 'say_goodbye',
         'access callback' => TRUE,
-        'type' => MENU_NORMAL_ITEM,
+        'type' => MENU_CALLBACK,
     );
     return $items;
 }
+// Note: Use MENU_CALLBACK (rather than MENU_NORMAL_ITEM) to create a function that does not show up in a menu, such as a 'success' page after a form submission.
 
 function say_hello() {
     return '<p>Hello my dear friend!</p>';
