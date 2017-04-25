@@ -10,7 +10,7 @@
             'type' => MENU_NORMAL_ITEM,
     );
     $items['order_success_page'] = array (
-        'title' => 'Order success',
+        'title' => 'Order confirmation',
         'page callback' => 'order_success_page',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
@@ -19,10 +19,20 @@
 }
 
 function order_form() {
+    $form['type_options'] = array(
+        '#type' => 'value',
+        '#value' => array(
+            'NONE' => t('--- SELECT ---'),
+            'Stumptown Hair Bender' => t('Stumptown Hair Bender'),
+            'Batman Blend' => t('Batman Blend'),
+            'Treehouse Blend' => t('Treehouse Blend'),
+        )
+    );
     $form['type'] = array(
         '#title' => 'type',
-        '#type' => 'textfield',
-        '#description' => t('Please enter the type of coffee you want to order'),
+        '#type' => 'select',
+        '#description' => t('Please choose the type of coffee you want to order'),
+        '#options' => $form['type_options']['#value'],
     );
     $form['quantity'] = array(
         '#title' => 'quantity',
@@ -43,10 +53,11 @@ function order_form() {
 }
 
 function order_form_submit($form, &$form_state) {
+    var_dump($form_state);
     $type  = $form_state['values']['type'];
     $quantity  = $form_state['values']['quantity'];
     $address  = $form_state['values']['address'];
-    $_SESSION['order_confirmation']  = '<h2>Order Details</h2> <br> <h4>Type:'. $type .'</h4><br>
+    $_SESSION['order_confirmation']  = '<h2>Order Details:</h2> <br> <h4>Type:'. $type .'</h4><br>
     <h4>Address:'. $address .'</h4><br>
     <h4>Quantity:'. $quantity .'</h4><br>';
     $form_state['redirect'] = 'order_success_page';
@@ -54,5 +65,5 @@ function order_form_submit($form, &$form_state) {
 
 function order_success_page() {
     $confirmation = $_SESSION['order_confirmation'];
-    return "<h1>Order submitted</h1> <br>" .  $confirmation;
+    return "<br>" . $confirmation;
 }
