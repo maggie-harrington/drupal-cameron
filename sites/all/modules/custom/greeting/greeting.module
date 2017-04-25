@@ -2,34 +2,39 @@
 
 function greeting_menu() {
     $items = array();
-    $items['hello_friend'] = array(
-        'title' => 'Hello Friend!',
-        'page callback' => 'say_hello',
+    $items['hello_user_message'] = array(
+        'title' => 'Hello!',
+        'page callback' => 'hello_user_message',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
-    $items['goodbye'] = array(
+    $items['goodbye_user_message'] = array(
         'title' => 'Goodbye Friend!',
-        'page callback' => 'say_goodbye',
+        'page callback' => 'goodbye_user_message',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
     return $items;
 }
-// Note: Use MENU_CALLBACK (rather than MENU_NORMAL_ITEM) to create a function that does not show up in a menu, such as a 'success' page after a form submission.
 
-function say_hello() {
-    return '<p>Hello my dear friend!</p>';
+function hello_user_message() {
+    GLOBAL $user;
+    $roles = $user->roles;
+    if (count($roles) > 1) {
+        return "<p>Hello admin, thanks for logging in</p>";
+    } else {
+        return "<p>Hello registered user, thanks for logging in!</p>";
+    }
 }
 
-function say_goodbye() {
-    return '<p>Goodbye my dear friend!</p>';
+function goodbye_user_message() {
+    return "<p>Goodbye, thanks for stopping by!</p>";
 }
 
 function greeting_user_login() {
-  $_GET['destination'] = 'hello_friend';
+    $_GET['destination'] = 'hello_user_message';
 }
 
 function greeting_user_logout() {
-  $_GET['destination'] = 'goodbye';
+  $_GET['destination'] = 'goodbye_user_message';
 }
