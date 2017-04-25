@@ -8,6 +8,18 @@ function hello_user_menu() {
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
+    $items['comment_confirmation'] = array(
+        'title' => 'Comment submitted!',
+        'page callback' => 'comment_confirmation',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    $items['comment_deleted'] = array(
+        'title' => 'Comment deleted!',
+        'page callback' => 'comment_deleted',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
     return $items;
 }
 
@@ -20,4 +32,20 @@ function welcome_user() {
 
 function hello_user_user_insert() {
     $_GET['destination'] = 'hello_user';
+}
+
+function comment_confirmation() {
+    return '<h1>Success</h1>';
+}
+
+function comment_deleted() {
+    return '<h1>Comment had been deleted</h1>';
+}
+
+function hello_user_comment_insert() {
+    $_GET['destination'] = 'comment_confirmation';
+}
+
+function hello_user_comment_delete() {
+    $_GET['destination'] = 'comment_deleted';
 }
