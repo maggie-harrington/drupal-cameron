@@ -1,0 +1,23 @@
+<?php
+
+function hello_user_menu() {
+    $items = array();
+    $items['hello_user'] = array(
+        'title' => 'Hello new user!',
+        'page callback' => 'welcome_user',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function welcome_user() {
+    return "
+        <h1>Welcome to Cameron's Coffee!</h1>
+        <p>As a registered user, you will have access to our special events and discounts!</p>
+    ";
+}
+
+function hello_user_user_insert() {
+    $_GET['destination'] = 'hello_user';
+}

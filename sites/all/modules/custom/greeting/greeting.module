@@ -25,3 +25,11 @@ function say_hello() {
 function say_goodbye() {
     return '<p>Goodbye my dear friend!</p>';
 }
+
+function greeting_user_login() {
+  $_GET['destination'] = 'hello_friend';
+}
+
+function greeting_user_logout() {
+  $_GET['destination'] = 'goodbye';
+}
