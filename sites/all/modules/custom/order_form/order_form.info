@@ -1,0 +1,5 @@
+name = Order Form
+description = Form to order coffee.
+package = Epicodus Practice Modules
+core = 7.x
+files[] = order_form.module

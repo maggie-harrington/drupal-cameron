@@ -1,0 +1,58 @@
+<?php
+
+    function order_form_menu() {
+        $items = array();
+        $items['order_form'] = array (
+            'title' => 'Order form',
+            'page callback' => 'drupal_get_form',
+            'page arguments' => array('order_form'),
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+    );
+    $items['order_success_page'] = array (
+        'title' => 'Order success',
+        'page callback' => 'order_success_page',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function order_form() {
+    $form['type'] = array(
+        '#title' => 'type',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the type of coffee you want to order'),
+    );
+    $form['quantity'] = array(
+        '#title' => 'quantity',
+        '#type' => 'textfield',
+        '#description' => t('Enter quantity'),
+    );
+    $form['address'] = array(
+        '#title' => 'address',
+        '#type' => 'textfield',
+        '#description' => t('Shipping address'),
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Enter order',
+    );
+
+    return $form;
+}
+
+function order_form_submit($form, &$form_state) {
+    $type  = $form_state['values']['type'];
+    $quantity  = $form_state['values']['quantity'];
+    $address  = $form_state['values']['address'];
+    $_SESSION['order_confirmation']  = '<h2>Order Details</h2> <br> <h4>Type:'. $type .'</h4><br>
+    <h4>Address:'. $address .'</h4><br>
+    <h4>Quantity:'. $quantity .'</h4><br>';
+    $form_state['redirect'] = 'order_success_page';
+}
+
+function order_success_page() {
+    $confirmation = $_SESSION['order_confirmation'];
+    return "<h1>Order submitted</h1> <br>" .  $confirmation;
+}

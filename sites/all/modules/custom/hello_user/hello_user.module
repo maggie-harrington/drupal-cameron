@@ -20,6 +20,12 @@ function hello_user_menu() {
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
+    $items['comment_updated'] = array(
+        'title' => 'Comment updated!',
+        'page callback' => 'comment_updated',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
     return $items;
 }
 
@@ -35,11 +41,15 @@ function hello_user_user_insert() {
 }
 
 function comment_confirmation() {
-    return '<h1>Success</h1>';
+    return "<h1>Success</h1>";
 }
 
 function comment_deleted() {
-    return '<h1>Comment had been deleted</h1>';
+    return "<h1>Comment has been deleted</h1>";
+}
+
+function comment_updated() {
+    return "<h1>Comment has been updated</h1>";
 }
 
 function hello_user_comment_insert() {
@@ -48,4 +58,8 @@ function hello_user_comment_insert() {
 
 function hello_user_comment_delete() {
     $_GET['destination'] = 'comment_deleted';
+}
+
+function hello_user_comment_update() {
+    $_GET['destination'] = 'comment_updated';
 }
